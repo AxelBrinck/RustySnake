@@ -1,5 +1,4 @@
-use piston_window::*;
-use piston_window::types::Color;
+use piston_window::{types::Color, Key, Context, G2d};
 
 use rand::{thread_rng, Rng};
 
@@ -102,7 +101,7 @@ impl Game {
     fn check_eating(&mut self) {
         let (head_x, head_y): (i32, i32) = self.snake.head_position();
 
-        if (self.food_exists && self.food_x == head_x && self.food_y == head_y) {
+        if self.food_exists && self.food_x == head_x && self.food_y == head_y {
             self.food_exists = false;
             self.snake.restore_tail();
         }
